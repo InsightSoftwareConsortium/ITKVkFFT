@@ -3,7 +3,7 @@ name: Test GPU
 on: [pull_request]
 
 env:
-  itk-git-tag: "abf5fa10522a36bc51f42f20f426a622f42ed90d"
+  itk-git-tag: "v6.0a02"
 
 jobs:
   build-test-gpu:
@@ -27,7 +27,7 @@ jobs:
         if [ $(clinfo | grep "Number of devices" | awk '{print $4}') == "0" ]; then echo "Could not find OpenCL devices" && exit 1; fi
       shell: bash
 
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4.2.2
 
     - name: Get specific version of CMake, Ninja
       uses: lukka/get-cmake@v3.22.2
